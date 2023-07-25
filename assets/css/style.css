@@ -272,6 +272,25 @@ main{ flex-grow: 1;}
   font-weight: var(--weight-regular);
   line-height: 32px;
 }
+.display-large{
+  font-family: var(--font-primary);
+  font-size: var(--fs-display-large);
+  font-weight: var(--weight-regular);
+  line-height: 32px;
+  letter-spacing: -0.25px;
+}
+
+.display-medium{
+  font-size: var(--fs-display-medium);
+  line-height: 36px;
+}
+
+.display-small{
+  font-family: var(--font-primary);
+  font-size: var(--fs-display-small);
+  font-weight: var(--weight-regular);
+  line-height: 32px;
+}
 
 .headline-small{
   font-size: var(--fs-headline-small);
