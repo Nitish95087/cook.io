@@ -31,3 +31,4 @@ export const fetchData = async function(queries, successCallback){
         successCallback(data);
     }
 }
+

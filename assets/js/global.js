@@ -6,6 +6,8 @@
 
 "use strict";
 
+import { fetchData } from "./api.js";
+
 /**
  * 
  * @param {NodeList} $elements NodeList
@@ -19,7 +21,7 @@ window.addEventOnElements = ($elements, eventType, callback)=>{
     }
 }
 
-export const /** {Array} */ cardQueries = [
+ export const /** {Array} */ cardQueries = [
 ["field", "rui"],
 ["field", "label"],
 ["field", "image"],
@@ -29,7 +31,7 @@ export const /** {Array} */ cardQueries = [
 /**
  * Skeleton card
  */
-export const /** {String} */ $skeletonCard = `
+ export const /** {String} */ $skeletonCard = `
 <div class="card skeleton-card">
 
         <div class="skeleton card-banner"></div>
@@ -43,3 +45,24 @@ export const /** {String} */ $skeletonCard = `
 
 </div>
 `;
+
+const /** {String} */ ROOT = "https://api.edamam.com/api/recipes/v2";
+
+window.savedRecipe = function(element, recipeId){
+    const /** {String} */ isSaved = window.localStorage.getItem(`cookio-recipe${recipeId}`);
+    ACCESS_POINT = `${ROOT}/${recipeId}`;
+
+    if(!isSaved){
+        fetchData(cardQueries, function(data){
+        window.localStorage.setItem(`cookio-recipe${recipeId}`, JSON.stringify(data));
+        element.classList.toggle("saved");
+        element.classList.toggle("removed");
+        });
+        ACCESS_POINT = ROOT;
+    }else{
+        window.localStorage.removeItem(`cookio-recipe${recipeId}`);
+        element.classList.toggle("saved");
+        element.classList.toggle("removed");
+
+    }
+}

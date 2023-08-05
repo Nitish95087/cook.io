@@ -196,7 +196,9 @@ a,
 img,
 span,
 input,
-button{ display: block;}
+button{ 
+  display: block;
+}
 
 a{
   color: inherit;
@@ -204,6 +206,7 @@ a{
 }
 
 img{
+  width: 100%;
   height: auto;
 }
 
@@ -841,7 +844,7 @@ main{ flex-grow: 1;}
 }
 
 .load-more-card{
-  height: 334px;
+  height: 100%;
   background-color: var(--primary-container);
   border-radius: var(--radius-4);
   border: 1px solid var(--outline);
